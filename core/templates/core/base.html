@@ -1,0 +1,25 @@
+{% load static %}<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ profile.full_name }} – Ingénieur Systèmes & Réseaux, Développeur Web{% endblock %}</title>
+  <meta name="description" content="Portfolio de {{ profile.full_name }} : systèmes et réseaux, développement web, design graphique.">
+  <meta name="theme-color" content="#0c0a18">
+  <script>
+    /* applique le thème avant l'affichage pour éviter le flash (sombre par défaut) */
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+  {% block body %}{% endblock %}
+  <script src="{% static 'core/js/main.js' %}" defer></script>
+</body>
+</html>
