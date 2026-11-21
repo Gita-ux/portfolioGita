@@ -1,11 +1,11 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# À changer avant toute mise en ligne
-SECRET_KEY = "change-moi-avant-la-production"
-DEBUG = True
-ALLOWED_HOSTS = ["*"]  # permet de tester depuis le téléphone via le WiFi local
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG", "1") == "1"
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
